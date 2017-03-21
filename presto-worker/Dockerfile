@@ -20,8 +20,8 @@ RUN mkdir -p ${PRESTO_DIR} ${PRESTO_ETC_DIR}/catalog \
 RUN mkdir ${PRESTO_DATA_DIR}
 ENV NODE_node.data-dir ${PRESTO_DATA_DIR}
 
-RUN uid="$(uuid)"
-ENV NODE_node.id $uid
+# RUN uid="$(uuid)"
+# ENV NODE_node.id 2670cece-0e11-11e7-9d06-e3b249e9e6a8
 
 RUN mkdir ${PRESTO_DIR}/etc
 COPY ./etc ${PRESTO_DIR}/etc/
