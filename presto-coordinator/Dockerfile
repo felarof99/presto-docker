@@ -21,8 +21,8 @@ WORKDIR ${PRESTO_DIR}
 RUN mkdir ${PRESTO_DATA_DIR}
 ENV NODE_node.data-dir ${PRESTO_DATA_DIR}
 
-RUN uid="$(uuid)"
-ENV NODE_node.id $uid
+# RUN uid="$(uuid)"
+# ENV NODE_node.id 16bb173c-0e11-11e7-a197-5779be888baf
 
 RUN mkdir ${PRESTO_DIR}/etc
 COPY ./etc ${PRESTO_DIR}/etc/
