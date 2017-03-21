@@ -2,7 +2,8 @@ FROM openjdk:8-jre
 
 RUN apt-get update -y \
  && apt-get install -y python-pip \
- && pip install envtpl
+ && pip install envtpl \
+ && apt-get install -y uuid
 
 ENV PRESTO_VERSION 0.166
 ENV PRESTO_DIR /opt/presto
@@ -19,6 +20,9 @@ WORKDIR ${PRESTO_DIR}
 
 RUN mkdir ${PRESTO_DATA_DIR}
 ENV NODE_node.data-dir ${PRESTO_DATA_DIR}
+
+RUN uid="$(uuid)"
+ENV NODE_node.id $uid
 
 RUN mkdir ${PRESTO_DIR}/etc
 COPY ./etc ${PRESTO_DIR}/etc/
