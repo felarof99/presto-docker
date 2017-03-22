@@ -1,0 +1,18 @@
+{
+    "kind": "Service",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "presto-coordinator-service"
+    },
+    "spec": {
+        "type": "LoadBalancer",
+        "selector": {
+            "app": "presto-coordinator"
+        },
+        "ports": [
+            {
+                "port": 50052
+            }
+        ]
+    }
+}
